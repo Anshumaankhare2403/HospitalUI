@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Play, CheckCircle2, Calendar, PhoneCall, ArrowRight, ShieldCheck, HeartPulse } from 'lucide-react';
 import Button from '../ui/Button';
 import CapsuleBackground from '../3d/CapsuleBackground';
+import drPrashantImg from '../../assets/doctors/dr-prashant-sahu.jpg';
 
 export default function Hero({ onOpenAppointment, onOpenVideo, onOpenAuth }) {
   return (
@@ -94,12 +95,14 @@ export default function Hero({ onOpenAppointment, onOpenVideo, onOpenAuth }) {
               {/* Secondary subtle decorative accent ring */}
               <div className="absolute -inset-4 rounded-full border-2 border-[#1c2b8f]/20 border-dashed animate-spin-slow pointer-events-none" />
 
-              {/* Doctor Cutout Image */}
-              <img
-                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800"
-                alt="Lead Doctor"
-                className="absolute inset-x-0 bottom-0 mx-auto h-[105%] w-auto object-cover object-top rounded-b-full filter drop-shadow-2xl"
-              />
+              {/* Doctor Photo Portal */}
+              <div className="absolute inset-2 sm:inset-3 rounded-full overflow-hidden border-4 border-white shadow-2xl z-10 bg-slate-100">
+                <img
+                  src={drPrashantImg}
+                  alt="Dr. Prashant Sahu - Consultant General & Laparoscopic Surgeon"
+                  className="w-full h-full object-cover object-[center_16%] filter contrast-[1.02] brightness-[1.01]"
+                />
+              </div>
 
               {/* Floating Card 1: Qualified Doctors */}
               <motion.div
