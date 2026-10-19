@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Play, CheckCircle2, Calendar, PhoneCall, ArrowRight, ShieldCheck, HeartPulse } from 'lucide-react';
 import Button from '../ui/Button';
 import CapsuleBackground from '../3d/CapsuleBackground';
-import drPrashantImg from '../../assets/doctors/dr-prashant-sahu.jpg';
+import drVarunImg from '../../assets/doctors/dr-varun-agrawal.jpg';
 
 export default function Hero({ onOpenAppointment, onOpenVideo, onOpenAuth }) {
   return (
@@ -98,8 +98,8 @@ export default function Hero({ onOpenAppointment, onOpenVideo, onOpenAuth }) {
               {/* Doctor Photo Portal */}
               <div className="absolute inset-2 sm:inset-3 rounded-full overflow-hidden border-4 border-white shadow-2xl z-10 bg-slate-100">
                 <img
-                  src={drPrashantImg}
-                  alt="Dr. Prashant Sahu - Consultant General & Laparoscopic Surgeon"
+                  src={drVarunImg}
+                  alt="Dr. Varun Agrawal - Consultant Nephrologist & Kidney Specialist"
                   className="w-full h-full object-cover object-[center_16%] filter contrast-[1.02] brightness-[1.01]"
                 />
               </div>
