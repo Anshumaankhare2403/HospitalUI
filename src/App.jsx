@@ -9,8 +9,6 @@ import Departments from './components/sections/Departments';
 import Doctors from './components/sections/Doctors';
 import HospitalInfrastructure from './components/sections/HospitalInfrastructure';
 import Testimonials from './components/sections/Testimonials';
-import Articles from './components/sections/Articles';
-import Newsletter from './components/sections/Newsletter';
 import AppointmentModal from './components/ui/AppointmentModal';
 import AuthModal from './components/ui/AuthModal';
 import VideoModal from './components/ui/VideoModal';
@@ -126,12 +124,6 @@ export default function App() {
 
         {/* Patient Testimonials */}
         <Testimonials />
-
-        {/* Latest Articles */}
-        <Articles />
-
-        {/* Newsletter Subscription */}
-        <Newsletter />
 
         {/* Footer */}
         <Footer />
