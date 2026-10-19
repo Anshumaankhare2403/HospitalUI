@@ -1,0 +1,97 @@
+{
+  "target_website": "https://vasudevhospital.in",
+  "analyzed_at": "2026-10-18T20:45:00+05:30",
+  "crawler_status": "complete",
+  "architecture_type": "Single Page Application (SPA) with Hash Routing & REST API Backend",
+  "base_url": "https://vasudevhospital.in",
+  "routes": [
+    {
+      "url": "https://vasudevhospital.in/",
+      "hash": "",
+      "title": "Vasudev Multispeciality Hospital - Home",
+      "type": "landing_page",
+      "status": 200,
+      "description": "NABH-certified multispeciality hospital in Daganiya, Raipur. 24x7 emergency, ICU, dialysis, CT scan and specialist OPDs."
+    },
+    {
+      "url": "https://vasudevhospital.in/#doctors",
+      "hash": "#doctors",
+      "title": "Doctors & Consultants Directory",
+      "type": "opd_directory",
+      "status": 200,
+      "description": "Full directory of 13 medical specialists, qualifications, OPD schedules, and consultation timings."
+    },
+    {
+      "url": "https://vasudevhospital.in/#appointment",
+      "hash": "#appointment",
+      "title": "Book Appointment",
+      "type": "interactive_form",
+      "status": 200,
+      "description": "Online OPD appointment booking form with department and doctor pre-filtering."
+    },
+    {
+      "url": "https://vasudevhospital.in/#departments",
+      "hash": "#departments",
+      "title": "Centres of Excellence & Clinical Departments",
+      "type": "services_overview",
+      "status": 200,
+      "description": "16 clinical departments spanning Nephrology, Urology, Laparoscopy, Gynaecology, Orthopaedics, and more."
+    },
+    {
+      "url": "https://vasudevhospital.in/#facilities",
+      "hash": "#facilities",
+      "title": "Hospital Infrastructure & Facilities",
+      "type": "facilities_grid",
+      "status": 200,
+      "description": "23 advanced hospital facilities including Modular OT with C-arm, ICU/CCU, CT scan, USG, and Dialysis."
+    },
+    {
+      "url": "https://vasudevhospital.in/#patients",
+      "hash": "#patients",
+      "title": "Patient Portal & Online Lab Reports",
+      "type": "patient_portal",
+      "status": 200,
+      "description": "Secure patient report lookup system authenticated via Registered Mobile Number and Billing PIN."
+    },
+    {
+      "url": "https://vasudevhospital.in/#insurance",
+      "hash": "#insurance",
+      "title": "Insurance & Cashless Empanelment",
+      "type": "insurance_partners",
+      "status": 200,
+      "description": "Ayushman Bharat, CGHS, ESIC, CSEB, and 6+ Private TPAs/Insurers for cashless hospitalization."
+    },
+    {
+      "url": "https://vasudevhospital.in/#about",
+      "hash": "#about",
+      "title": "About Us, Mission, Vision & Visiting Hours",
+      "type": "institutional_profile",
+      "status": 200,
+      "description": "Establishment background (2021), NABH certification, patient visiting hours, and visitor guidelines."
+    },
+    {
+      "url": "https://vasudevhospital.in/#contact",
+      "hash": "#contact",
+      "title": "Contact, Location & 24x7 Emergency Helpline",
+      "type": "contact_emergency",
+      "status": 200,
+      "description": "Emergency helpline numbers, email, physical address in Daganiya Raipur, and Google Maps direction."
+    },
+    {
+      "url": "https://vasudevhospital.in/api/?a=content",
+      "hash": null,
+      "title": "Live Content JSON REST Endpoint",
+      "type": "backend_api",
+      "status": 200,
+      "description": "Public content delivery API powering the dynamic SPA content."
+    }
+  ],
+  "social_channels": [
+    "https://www.facebook.com/VasudevMultispecialtyHospital",
+    "https://www.instagram.com/vasudev_multispecialtyhospital/"
+  ],
+  "external_resources": [
+    "https://maps.app.goo.gl/pCC8iGmiwfhH1yrA8",
+    "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&family=Mukta:wght@400;500;600;700&display=swap"
+  ]
+}

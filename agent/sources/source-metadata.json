@@ -1,0 +1,43 @@
+{
+  "reference_source": "Vasudev Multispeciality Hospital & Research Centre",
+  "domain": "vasudevhospital.in",
+  "canonical_url": "https://www.vasudevhospital.in/",
+  "crawled_at": "2026-10-18T20:45:00+05:30",
+  "inspection_methods": [
+    "Headless Chromium Browser rendering via Antigravity Browser Subagent",
+    "DOM element extraction and deep scroll-through",
+    "Network inspection & REST API payload extraction (/api/?a=content)",
+    "Client-side bundle inspection (app.js, api.js, chatbot.js, icons.js)",
+    "CSS stylesheet variable and token extraction (site.css, premium.css)"
+  ],
+  "server_environment_observed": {
+    "web_server": "LiteSpeed / Apache (inferred from headers and .htaccess)",
+    "backend_language": "PHP 8.x + SQLite (documented in client api.js)",
+    "client_framework": "Vanilla JS SPA with custom state store, custom template literal rendering, and fallback demo-seed preview mode",
+    "styling": "Modular Vanilla CSS with CSS custom properties, fluid typography clamp(), mobile bottom dock, and responsive dark theme"
+  },
+  "content_manifest": {
+    "total_departments": 16,
+    "total_doctors": 13,
+    "total_facilities": 23,
+    "total_insurance_empaneled": 10,
+    "total_faqs": 11,
+    "total_gallery_items": 10,
+    "accreditation": {
+      "body": "National Accreditation Board for Hospitals & Healthcare Providers (NABH)",
+      "level": "Entry Level – Small Healthcare Organisation (SHCO)",
+      "certificate_no": "PESHCO-2024-9227",
+      "valid_from": "28 July 2026",
+      "valid_to": "27 July 2028",
+      "first_certified": "12 March 2024"
+    }
+  },
+  "extracted_contact": {
+    "emergency_phone": "+91 79870 25114",
+    "primary_phone": "+91 90390 33712",
+    "whatsapp": "+91 90390 33712",
+    "email": "vasudevhospital.ryp@gmail.com",
+    "address_en": "Mahadev Ghat Road, Near Raipura Chowk, beside Rohinipuram Talab, Daganiya, Raipur, Chhattisgarh 492013",
+    "address_hi": "रायपुरा चौक के पास, रोहिणीपुरम तालाब के बाजू, डंगनिया, रायपुर (छ.ग.)"
+  }
+}
