@@ -1,11 +1,110 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Magnet from '../reactbits/Magnet';
 import otImg from '../../assets/photos/ot-c-arm.jpg';
 import icuImg from '../../assets/photos/icu.jpg';
 import xrayImg from '../../assets/photos/xray-room.jpg';
 
 export default function CentresOfExcellence({ onSelectSpeciality, onViewAllDepartments }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isResponsive, setIsResponsive] = useState(false);
+  const scrollerRef = useRef(null);
+  const resumeTimeoutRef = useRef(null);
+
+  // Detect responsive screen (< 1024px)
+  useEffect(() => {
+    const checkResponsive = () => {
+      setIsResponsive(window.innerWidth < 1024);
+    };
+    checkResponsive();
+    window.addEventListener('resize', checkResponsive);
+    return () => window.removeEventListener('resize', checkResponsive);
+  }, []);
+
+  // Smoothly scroll to a specific card index
+  const scrollToIndex = (index) => {
+    if (!scrollerRef.current) return;
+    const container = scrollerRef.current;
+    const cards = container.children;
+    if (cards[index]) {
+      const card = cards[index];
+      const targetLeft = card.offsetLeft - (container.clientWidth - card.clientWidth) / 2;
+      container.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: 'smooth'
+      });
+      setActiveIndex(index);
+    }
+  };
+
+  // Sync activeIndex with manual touch/swipe scroll
+  const handleScroll = () => {
+    if (!scrollerRef.current) return;
+    const container = scrollerRef.current;
+    const cards = Array.from(container.children);
+    const containerCenter = container.scrollLeft + container.clientWidth / 2;
+
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    cards.forEach((card, idx) => {
+      const cardCenter = card.offsetLeft + card.clientWidth / 2;
+      const dist = Math.abs(containerCenter - cardCenter);
+      if (dist < minDistance) {
+        minDistance = dist;
+        closestIndex = idx;
+      }
+    });
+
+    if (closestIndex !== activeIndex) {
+      setActiveIndex(closestIndex);
+    }
+  };
+
+  // Pause auto-scroll on hover or touch
+  const pauseAutoScroll = () => {
+    setIsPaused(true);
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current);
+    }
+  };
+
+  // Resume auto-scroll after inactivity timeout
+  const resumeAutoScroll = (delay = 3000) => {
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current);
+    }
+    resumeTimeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, delay);
+  };
+
+  // Auto-scroller interval for responsive screens
+  useEffect(() => {
+    if (!isResponsive || isPaused) return;
+
+    const interval = setInterval(() => {
+      if (!scrollerRef.current) return;
+      setActiveIndex((prev) => {
+        const next = (prev + 1) % 4;
+        scrollToIndex(next);
+        return next;
+      });
+    }, 3800);
+
+    return () => clearInterval(interval);
+  }, [isResponsive, isPaused]);
+
+  // Clean up any timeouts
+  useEffect(() => {
+    return () => {
+      if (resumeTimeoutRef.current) {
+        clearTimeout(resumeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const handleExplore = (deptId) => {
     if (onSelectSpeciality) {
@@ -72,8 +171,17 @@ export default function CentresOfExcellence({ onSelectSpeciality, onViewAllDepar
           </div>
         </div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4 Cards Container: Auto-Scroller on Responsive (< lg), 4-col Grid on Desktop (lg+) */}
+        <div
+          ref={scrollerRef}
+          onMouseEnter={pauseAutoScroll}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={pauseAutoScroll}
+          onTouchEnd={() => resumeAutoScroll(2500)}
+          onScroll={handleScroll}
+          className="flex lg:grid lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto lg:overflow-visible scroll-smooth snap-x snap-mandatory scrollbar-none py-2 px-1"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
 
           {/* ========================================================
               CARD 1: Nephrology & Dialysis (Flagship Centre)
@@ -83,7 +191,7 @@ export default function CentresOfExcellence({ onSelectSpeciality, onViewAllDepar
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0 }}
-            className="group relative rounded-3xl overflow-hidden p-6 sm:p-7 flex flex-col justify-between min-h-[460px] md:min-h-[490px] border border-white/10 hover:border-white/25 shadow-2xl transition-all duration-300 hover:-translate-y-1.5"
+            className="group relative rounded-3xl overflow-hidden p-6 sm:p-7 flex flex-col justify-between min-h-[460px] md:min-h-[490px] border border-white/10 hover:border-white/25 shadow-2xl transition-all duration-300 hover:-translate-y-1.5 w-[86vw] max-w-[340px] sm:w-[320px] lg:w-auto shrink-0 lg:shrink snap-center"
             style={{
               background: 'radial-gradient(circle at 85% 20%, rgba(147, 51, 234, 0.42) 0%, rgba(88, 28, 135, 0.2) 40%, transparent 70%), linear-gradient(145deg, #0d1238 0%, #1c1549 50%, #301150 100%)'
             }}
@@ -163,7 +271,7 @@ export default function CentresOfExcellence({ onSelectSpeciality, onViewAllDepar
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="group relative rounded-3xl overflow-hidden p-6 sm:p-7 flex flex-col justify-between min-h-[460px] md:min-h-[490px] border border-white/10 hover:border-white/25 shadow-2xl transition-all duration-300 hover:-translate-y-1.5"
+            className="group relative rounded-3xl overflow-hidden p-6 sm:p-7 flex flex-col justify-between min-h-[460px] md:min-h-[490px] border border-white/10 hover:border-white/25 shadow-2xl transition-all duration-300 hover:-translate-y-1.5 w-[86vw] max-w-[340px] sm:w-[320px] lg:w-auto shrink-0 lg:shrink snap-center"
           >
             {/* Real Photo Background */}
             <img
@@ -225,7 +333,7 @@ export default function CentresOfExcellence({ onSelectSpeciality, onViewAllDepar
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="group relative rounded-3xl overflow-hidden p-6 sm:p-7 flex flex-col justify-between min-h-[460px] md:min-h-[490px] border border-white/10 hover:border-white/25 shadow-2xl transition-all duration-300 hover:-translate-y-1.5"
+            className="group relative rounded-3xl overflow-hidden p-6 sm:p-7 flex flex-col justify-between min-h-[460px] md:min-h-[490px] border border-white/10 hover:border-white/25 shadow-2xl transition-all duration-300 hover:-translate-y-1.5 w-[86vw] max-w-[340px] sm:w-[320px] lg:w-auto shrink-0 lg:shrink snap-center"
           >
             {/* Real Photo Background */}
             <img
@@ -286,7 +394,7 @@ export default function CentresOfExcellence({ onSelectSpeciality, onViewAllDepar
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="group relative rounded-3xl overflow-hidden p-6 sm:p-7 flex flex-col justify-between min-h-[460px] md:min-h-[490px] border border-white/10 hover:border-white/25 shadow-2xl transition-all duration-300 hover:-translate-y-1.5"
+            className="group relative rounded-3xl overflow-hidden p-6 sm:p-7 flex flex-col justify-between min-h-[460px] md:min-h-[490px] border border-white/10 hover:border-white/25 shadow-2xl transition-all duration-300 hover:-translate-y-1.5 w-[86vw] max-w-[340px] sm:w-[320px] lg:w-auto shrink-0 lg:shrink snap-center"
           >
             {/* Real Photo Background */}
             <img
@@ -343,6 +451,56 @@ export default function CentresOfExcellence({ onSelectSpeciality, onViewAllDepar
             </div>
           </motion.div>
 
+        </div>
+
+        {/* Responsive Auto-Scroller Navigation & Progress Dots */}
+        <div className="flex lg:hidden items-center justify-between mt-6 px-2">
+          {/* Progress Dots */}
+          <div className="flex items-center gap-2">
+            {[0, 1, 2, 3].map((idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => {
+                  pauseAutoScroll();
+                  scrollToIndex(idx);
+                  resumeAutoScroll(4000);
+                }}
+                aria-label={`Go to speciality ${idx + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  activeIndex === idx ? 'w-8 bg-[#1c2b8f]' : 'w-2 bg-[#cbd5e1] hover:bg-slate-400'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Previous / Next Arrow Controls */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                pauseAutoScroll();
+                scrollToIndex((activeIndex - 1 + 4) % 4);
+                resumeAutoScroll(4000);
+              }}
+              aria-label="Previous speciality"
+              className="w-9 h-9 rounded-full border border-slate-300 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-50 transition-colors shadow-xs active:scale-95 cursor-pointer"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                pauseAutoScroll();
+                scrollToIndex((activeIndex + 1) % 4);
+                resumeAutoScroll(4000);
+              }}
+              aria-label="Next speciality"
+              className="w-9 h-9 rounded-full border border-slate-300 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-50 transition-colors shadow-xs active:scale-95 cursor-pointer"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
       </div>

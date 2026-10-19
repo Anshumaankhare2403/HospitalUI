@@ -479,7 +479,7 @@ export default function QuickBookingWidget({ onBookAppointment, onSearchDoctors 
       <div className="mt-8 bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-[#d5deec] shadow-sm grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-6 text-center items-center">
         
         {/* Stat 1: 24 Hour Emergency & ICU */}
-        <div className="px-3 border-r border-[#d5deec] last:border-r-0">
+        <div className="px-3 border-r border-[#d5deec]">
           <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f1a46] font-poppins tracking-tight">
             24
           </div>
@@ -489,7 +489,7 @@ export default function QuickBookingWidget({ onBookAppointment, onSearchDoctors 
         </div>
 
         {/* Stat 2: 13 Consultants */}
-        <div className="px-3 border-r border-[#d5deec] last:border-r-0">
+        <div className="px-3 sm:border-r border-[#d5deec]">
           <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f1a46] font-poppins tracking-tight">
             13
           </div>
@@ -499,7 +499,7 @@ export default function QuickBookingWidget({ onBookAppointment, onSearchDoctors 
         </div>
 
         {/* Stat 3: 16 Specialities */}
-        <div className="px-3 border-r border-[#d5deec] last:border-r-0 sm:border-r-0 lg:border-r">
+        <div className="px-3 border-r border-[#d5deec] sm:border-r-0 lg:border-r">
           <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f1a46] font-poppins tracking-tight">
             16
           </div>
@@ -509,7 +509,7 @@ export default function QuickBookingWidget({ onBookAppointment, onSearchDoctors 
         </div>
 
         {/* Stat 4: 10 Insurers & Schemes */}
-        <div className="px-3 border-r border-[#d5deec] last:border-r-0">
+        <div className="px-3 lg:border-r border-[#d5deec]">
           <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f1a46] font-poppins tracking-tight">
             10
           </div>
@@ -519,7 +519,7 @@ export default function QuickBookingWidget({ onBookAppointment, onSearchDoctors 
         </div>
 
         {/* Stat 5: 5+ Years Serving Raipur */}
-        <div className="px-3 col-span-2 sm:col-span-1">
+        <div className="px-3 col-span-2 sm:col-span-1 border-t sm:border-t-0 pt-4 sm:pt-0 border-[#d5deec]/60">
           <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f1a46] font-poppins tracking-tight">
             5<span className="text-[#d42a31]">+</span>
           </div>

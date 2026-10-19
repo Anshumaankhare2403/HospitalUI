@@ -303,8 +303,8 @@ export default function Departments({ onBookDepartment, onSelectDepartment }) {
           </h2>
         </div>
 
-        {/* 16 Clinical Department Cards (4 cols x 4 rows) with React Bits Spotlight Effect */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        {/* 16 Clinical Department Cards (2 cols on mobile, 4 cols on desktop) with React Bits Spotlight Effect */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           {all16Departments.map((dept, idx) => (
             <motion.div
               key={dept.id}
@@ -315,21 +315,21 @@ export default function Departments({ onBookDepartment, onSelectDepartment }) {
             >
               <SpotlightCard
                 onClick={() => handleCardClick(dept)}
-                className="p-4 sm:p-5 h-full flex items-center gap-4 cursor-pointer bg-white border border-[#d5deec] rounded-2xl shadow-xs hover:shadow-md hover:border-[#1c2b8f]/50 transition-all group"
+                className="p-3 sm:p-5 h-full flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4 cursor-pointer bg-white border border-[#d5deec] rounded-2xl shadow-xs hover:shadow-md hover:border-[#1c2b8f]/50 transition-all group"
                 spotlightColor="rgba(28, 43, 143, 0.06)"
                 borderColor="rgba(28, 43, 143, 0.3)"
               >
                 {/* Light Rounded Icon Box */}
-                <div className="w-12 h-12 rounded-xl bg-[#e9f0fa] border border-[#d5deec]/70 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-[#dbe7f8] transition-all shadow-xs">
+                <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-[#e9f0fa] border border-[#d5deec]/70 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-[#dbe7f8] transition-all shadow-xs">
                   {renderDepartmentIcon(dept.iconType)}
                 </div>
 
                 {/* Text Content */}
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-[#0f1a46] font-bold text-[14.5px] sm:text-base leading-snug group-hover:text-[#1c2b8f] transition-colors line-clamp-1">
+                  <h3 className="text-[#0f1a46] font-bold text-[12.5px] sm:text-base leading-snug group-hover:text-[#1c2b8f] transition-colors line-clamp-2 sm:line-clamp-1">
                     {dept.title}
                   </h3>
-                  <p className="text-[#56618a] text-xs sm:text-[13px] mt-0.5 leading-tight line-clamp-1">
+                  <p className="text-[#56618a] text-[10.5px] sm:text-[13px] mt-0.5 leading-tight line-clamp-1">
                     {dept.hindi}
                   </p>
                 </div>

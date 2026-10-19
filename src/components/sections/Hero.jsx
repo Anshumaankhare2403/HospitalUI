@@ -86,7 +86,7 @@ export default function Hero({ onOpenAppointment, onOpenVideo, onOpenAuth }) {
             className="lg:col-span-5 relative flex justify-center lg:justify-end"
           >
             {/* Primary Circular Background Container */}
-            <div className="relative w-[320px] sm:w-[380px] lg:w-[420px] h-[360px] sm:h-[420px] lg:h-[460px]">
+            <div className="relative w-[280px] min-[390px]:w-[320px] sm:w-[380px] lg:w-[420px] h-[320px] min-[390px]:h-[360px] sm:h-[420px] lg:h-[460px]">
               
               {/* Vibrant Royal Navy circular backdrop */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#0e1758] via-[#1c2b8f] to-[#2563eb] opacity-95 shadow-xl" />
@@ -106,14 +106,14 @@ export default function Hero({ onOpenAppointment, onOpenVideo, onOpenAuth }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute -top-4 -left-6 sm:-left-10 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-lg border border-[#d5deec] flex items-center gap-3 z-20"
+                className="absolute -top-3 left-0 sm:-left-6 lg:-left-10 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3.5 shadow-lg border border-[#d5deec] flex items-center gap-2.5 sm:gap-3 z-20"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#e9f0fa] text-[#1c2b8f] flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-6 h-6 stroke-[2.5]" />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#e9f0fa] text-[#1c2b8f] flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5]" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-[#0f1a46]">13+ Consultants</div>
-                  <div className="text-[11px] text-[#56618a]">Qualified Specialists &amp; Surgeons</div>
+                  <div className="text-[11px] sm:text-xs font-bold text-[#0f1a46]">13+ Consultants</div>
+                  <div className="text-[10px] sm:text-[11px] text-[#56618a]">Qualified Specialists</div>
                 </div>
               </motion.div>
 
@@ -122,14 +122,14 @@ export default function Hero({ onOpenAppointment, onOpenVideo, onOpenAuth }) {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="absolute bottom-8 -left-8 sm:-left-12 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-lg border border-[#d5deec] flex items-center gap-3 z-20"
+                className="absolute bottom-6 -left-2 sm:-left-6 lg:-left-12 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3.5 shadow-lg border border-[#d5deec] flex items-center gap-2.5 sm:gap-3 z-20"
               >
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                  <Calendar className="w-5 h-5" />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-[#0f1a46]">Instant Booking</div>
-                  <div className="text-[11px] text-emerald-600 font-semibold">OPD Slots Open Today</div>
+                  <div className="text-[11px] sm:text-xs font-bold text-[#0f1a46]">Instant Booking</div>
+                  <div className="text-[10px] sm:text-[11px] text-emerald-600 font-semibold">OPD Open Today</div>
                 </div>
               </motion.div>
 
@@ -138,14 +138,14 @@ export default function Hero({ onOpenAppointment, onOpenVideo, onOpenAuth }) {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="absolute -bottom-4 -right-4 sm:-right-8 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-lg border border-[#d5deec] flex items-center gap-3 z-20"
+                className="absolute -bottom-3 -right-2 sm:-right-6 lg:-right-8 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3.5 shadow-lg border border-[#d5deec] flex items-center gap-2.5 sm:gap-3 z-20"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#d42a31] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <PhoneCall className="w-5 h-5" />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#d42a31] text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-[#0f1a46]">24×7 Emergency</div>
-                  <div className="text-[11px] text-[#d42a31] font-bold">79870 25114</div>
+                  <div className="text-[11px] sm:text-xs font-bold text-[#0f1a46]">24×7 Emergency</div>
+                  <div className="text-[10px] sm:text-[11px] text-[#d42a31] font-bold">79870 25114</div>
                 </div>
               </motion.div>
 
