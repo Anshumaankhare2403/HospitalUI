@@ -14,6 +14,7 @@ import {
   Download, 
   ArrowRight
 } from 'lucide-react';
+import CountUp from '../reactbits/CountUp';
 import { departmentsData } from '../../data/departments';
 import { doctorsData } from '../../data/doctors';
 
@@ -481,7 +482,7 @@ export default function QuickBookingWidget({ onBookAppointment, onSearchDoctors 
         {/* Stat 1: 24 Hour Emergency & ICU */}
         <div className="px-3 border-r border-[#d5deec]">
           <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f1a46] font-poppins tracking-tight">
-            24
+            <CountUp to={24} duration={1.2} />
           </div>
           <div className="text-xs sm:text-sm font-semibold text-[#56618a] mt-1.5 leading-tight">
             Hour emergency &amp; ICU
@@ -491,7 +492,7 @@ export default function QuickBookingWidget({ onBookAppointment, onSearchDoctors 
         {/* Stat 2: 13 Consultants */}
         <div className="px-3 sm:border-r border-[#d5deec]">
           <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f1a46] font-poppins tracking-tight">
-            13
+            <CountUp to={13} duration={1.3} />
           </div>
           <div className="text-xs sm:text-sm font-semibold text-[#56618a] mt-1.5 leading-tight">
             Consultants
@@ -501,7 +502,7 @@ export default function QuickBookingWidget({ onBookAppointment, onSearchDoctors 
         {/* Stat 3: 16 Specialities */}
         <div className="px-3 border-r border-[#d5deec] sm:border-r-0 lg:border-r">
           <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f1a46] font-poppins tracking-tight">
-            16
+            <CountUp to={16} duration={1.4} />
           </div>
           <div className="text-xs sm:text-sm font-semibold text-[#56618a] mt-1.5 leading-tight">
             Specialities
@@ -511,7 +512,7 @@ export default function QuickBookingWidget({ onBookAppointment, onSearchDoctors 
         {/* Stat 4: 10 Insurers & Schemes */}
         <div className="px-3 lg:border-r border-[#d5deec]">
           <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f1a46] font-poppins tracking-tight">
-            10
+            <CountUp to={10} duration={1.2} />
           </div>
           <div className="text-xs sm:text-sm font-semibold text-[#56618a] mt-1.5 leading-tight">
             Insurers &amp; schemes
@@ -521,7 +522,7 @@ export default function QuickBookingWidget({ onBookAppointment, onSearchDoctors 
         {/* Stat 5: 5+ Years Serving Raipur */}
         <div className="px-3 col-span-2 sm:col-span-1 border-t sm:border-t-0 pt-4 sm:pt-0 border-[#d5deec]/60">
           <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f1a46] font-poppins tracking-tight">
-            5<span className="text-[#d42a31]">+</span>
+            <CountUp to={5} duration={1.0} /><span className="text-[#d42a31]">+</span>
           </div>
           <div className="text-xs sm:text-sm font-semibold text-[#56618a] mt-1.5 leading-tight">
             Years serving Raipur
